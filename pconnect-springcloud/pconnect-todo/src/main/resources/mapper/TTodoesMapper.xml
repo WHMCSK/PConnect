@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bgenius.pconnect.todo.mapper.TTodoesMapper">
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.todo.entity.TTodoes">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="todo" jdbcType="VARCHAR" property="todo" />
+    <result column="todo_date" jdbcType="TIMESTAMP" property="todoDate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+    <result column="period_limit" jdbcType="VARCHAR" property="periodLimit" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="owner_id" jdbcType="INTEGER" property="ownerId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_timestamp" jdbcType="TIMESTAMP" property="lastTimestamp" />
+  </resultMap>
+</mapper>

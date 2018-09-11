@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bgenius.pconnect.user.mapper.TUserGroupMapper" >
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.user.entity.TUserGroup" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <delete id="deleteByGroupId">
+    delete from t_user_group
+    where group_id=#{groupId}
+  </delete>
+
+  <select id="getByUserIdAndGroupId" resultMap="BaseResultMap" parameterType="cn.bgenius.pconnect.user.entity.TUserGroup">
+    select a.* from t_user_group a where a.group_id = #{groupId} and a.user_id=#{userId} and  a.type=#{type}
+  </select>
+  
+  <delete id="deleteByUserIdAndGroupId">
+    delete from t_user_group  where group_id = #{groupId} and user_id=#{userId} and  type=#{type}
+  </delete>
+</mapper>

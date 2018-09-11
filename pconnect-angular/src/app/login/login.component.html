@@ -1,0 +1,40 @@
+<my-info [alert]="alert"  [timeOut]="1500"  [msg]="msg" (msg_)="msg_($event)"></my-info>
+<div class="container">
+  <div class="login_logo">
+    <img src="/assets/img/PConnect-left-w.png" /><a>PConnect</a>
+  </div>
+  <div class="form-box">
+    <div class="sign-tab">
+      <span id="mBtn">短信登录</span>
+      <span id="nBtn" class="on">密码登录</span>
+    </div>
+
+    <!-- 手机登录 -->
+    <div id="mForm" class="formbox" style="display: none;">
+      <form class="form" id="f1"   method="post">
+        <p class="inp"><input class="f-m" name="username" placeholder="请输入手机号" type="text"></p>
+        <p class="inp3"><input class="f-y" name="password" placeholder="验证码" type="password"><span onclick="getCode()">获取验证码</span></p>
+        <p class="inp2"><input type="button" value="登录" id="mLogin"></p>
+      </form>
+    </div>
+
+    <!-- 用户名登录 -->
+    <div id='nForm' class="formbox">
+      <form class="form" id="f2"   method="post">
+        <p class="inp">
+          <input  class="f-u" name="username" [(ngModel)]="username"  placeholder="请输入用户名" 
+                  type="text" readonly onfocus="this.removeAttribute('readonly');" (keyup.enter)="login()">
+        </p> 
+        <p class="inp">
+          <input class="f-p" name="password" [(ngModel)]="password" placeholder="密码"
+                 type="password" readonly onfocus="this.removeAttribute('readonly');" (keyup.enter)="login()"> 
+        </p>
+        <p class="inp2">
+          <a class='unit-reg' routerLink="../register">注册</a>
+          <input (click)="login()" type="button" value="登录" id="nLogin">
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>

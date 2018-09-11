@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PConnect</title>
+	<link rel="shortcut icon" type="image/png" href="./PConnect-32x32.ico"/>
+	<style>
+		* {margin: 0; padding: 0;}
+		body {background-color: rgba(54,65,80,1); overflow: hidden;}
+		.container {
+			width: 364px;
+			margin: 50px auto;
+		}
+		.logo {
+			width: 315px;
+			margin: 20px auto;
+			height: 100px;
+			vertical-align: middle;
+			overflow: hidden;
+		}
+		.logo img {
+			display: inline-block;
+			height: 100px;
+			width: 630px;
+		}
+		.logo a {
+			line-height: 30px;
+			color: white;
+			font-size: 24px;
+			float: left;
+			margin-left: 15px;
+		}
+		.form-box {
+			width: 360px;
+			margin: 0 auto;
+			background-color: white;
+			border-radius: 5px;
+			box-sizing: border-box;
+			padding: 10px 30px;
+			position: relative;
+		}
+		.sign-tab {
+			width: 100%;
+			overflow: hidden;
+		}
+		.sign-tab span {
+			width: 50%;
+			float: left;
+			line-height: 45px;
+			text-align: center;
+			border-bottom: 3px solid #eee;
+			box-sizing: border-box;
+			color: #333;
+			cursor: pointer;
+		}
+		.sign-tab span.on {
+			border-bottom: 3px solid #42A4FC;
+		}
+		.formbox {
+			width: 100%;
+			margin-top: 30px;
+		}
+		.formbox p {
+			line-height: 35px;
+			margin-bottom: 15px;
+
+		}
+		.formbox p.inp input {
+			display: inline-block;
+			height: 35px;
+			width: 100%;
+			outline: none;
+			border: none;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			text-indent: 40px;
+			border-left: 2px solid #42A4FC;
+
+		}
+		.formbox p.inp2 {
+			overflow: hidden;
+			padding-top: 15px;
+		}
+		.formbox p.inp2 input {
+			float: right;
+			outline: none;
+			border: none;
+			background-color: #42A4FC;
+			color: white;
+			width: 80px;
+			height: 35px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.formbox p.inp2 a {
+			float: left;
+			color: #42A4FC;
+			font-size: 16px;
+			line-height: 35px;
+			cursor: pointer;
+		}
+		.formbox p.inp2 a:hover {
+			text-decoration: underline;
+		}
+		.formbox p.inp3 {
+			overflow: hidden;
+		}
+		.formbox p.inp3 input {
+			float: left;
+			outline: none;
+			border: none;
+			border: 1px solid #ccc;
+			height: 35px;
+			text-indent: 40px;
+			border-radius: 3px;
+			border-left: 2px solid #42A4FC;
+
+		}
+		.formbox p.inp3 span {
+			float: right;
+			height: 35px;
+			background-color: #ddd;
+			padding: 0 15px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+			color: #555;
+		}
+		.formbox p.inp3 span:hover {
+			background-color: #ccc;
+		}
+		.f-m {
+			background: url('./img/m.png') no-repeat 5px 0/ 35px 35px;
+		}
+		.f-y {
+			background: url('./img/y.png') no-repeat 7px 2px/ 30px 30px;
+		}
+		.f-u {
+			background: url('./img/u.png') no-repeat 5px 0/ 35px 35px;
+		}
+		.f-p {
+			background: url('./img/p.png') no-repeat 7px 2px/ 30px 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+			<img src="./img/PConnect.png" />
+		</div>
+		<div class="form-box">
+			<div class="sign-tab">
+				<span id="mBtn">短信登录</span>
+				<span id="nBtn" class="on">密码登录</span>
+			</div>
+
+			<!-- 手机登录 -->
+			<div id="mForm" class="formbox" style="display: none;">
+				<form class="form" id="f1" action="/login" method="post">
+					<p class="inp"><input class="f-m" autofocus name="username" placeholder="请输入手机号" type="text"></p>
+					<p class="inp3"><input class="f-y" name="password" placeholder="验证码" type="password"><span onclick="getCode()">获取验证码</span></p>
+					<p class="inp2"><input type="button" value="登录" id="mLogin"></p>
+				</form>
+			</div>
+
+			<!-- 用户名登录 -->
+			<div id='nForm' class="formbox">
+				<form class="form" id="f2" action="login" method="post">
+					<p class="inp"><input class="f-u" autofocus name="username" value="xiaoliu" placeholder="请输入用户名" type="text"></p>
+					<p class="inp"><input class="f-p" name="password" value="123456" placeholder="密码" type="password"></p>
+					<p class="inp2"><input type="button" value="登录" id="nLogin"></p>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script src='./js/jquery-2.1.1.min.js'></script>
+	<script>
+		// tabs切换
+		$('#mBtn').click(function(){
+			$('#mForm').show();
+			$('#nForm').hide();
+			$(this).addClass('on');
+			$('#nBtn').removeClass('on');
+		});
+		$('#nBtn').click(function(){
+			$('#nForm').show();
+			$('#mForm').hide();
+			$(this).addClass('on');
+			$('#mBtn').removeClass('on');
+		});
+
+
+		// 用户名登录
+		$('#nLogin').click(function(){
+            $("#f2").submit()
+		});
+
+	</script>
+	
+</body>
+</html>

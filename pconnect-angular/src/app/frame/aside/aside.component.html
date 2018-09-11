@@ -1,0 +1,71 @@
+
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="assets/img/PConnect-left-w.png" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>{{username}}</p>
+        <a ><i class="fa fa-circle text-success"></i> 在线</a>
+      </div>
+    </div>
+    <!-- search form -->
+    <!--    <div class="form-group sidebar-menu">
+          <select [(ngModel)]="selectedSystemId"   (change)="selectMenuList()" type="text" name="q"
+                  class="form-control treeview" style="background-color:#222d32;color:#FFF;border-color:#3b568c;">
+            <option *ngFor="let menu of treeMenu" value="{{menu.id}}">{{menu.title}}</option>
+          </select>
+        </div>-->
+
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header" ></li>
+      <!--      <li class="treeview" *ngFor="let menu of menuList;let i=index" [ngClass]="{'active':(menu.isOpen)}">
+              <a (click)="selectFirstMenu(menu)">
+                <i class="{{menu.icon}}"></i>
+                <span>{{menu.title}}</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
+              <ul class="treeview-menu" *ngIf="menu.isOpen">
+                <li *ngFor="let childMenu of menu?.children" (click)="selectedSecondMenu(childMenu,childMenu.href)"   [ngClass]="{'active':selectedMenuId==childMenu.id}">
+                  <a ><i class="{{childMenu.icon}}"></i>{{childMenu.title}}</a>
+                </li>
+              </ul>
+            </li>-->
+
+
+      <li class="treeview" *ngFor="let firstMenu of treeMenu;let i=index" [ngClass]="{'active':(firstMenu.isOpen)}">
+        <a (click)="selectFirstMenu(firstMenu)" >
+          <i class="{{firstMenu.icon}}"></i> <span>{{firstMenu.title}}</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+          <li *ngFor="let secondMenu of firstMenu?.children"   [ngClass]="{'active':(secondMenu.isOpen)}">
+            <a  (click)="selectSecondMenu(secondMenu)" ><i class="{{secondMenu.icon}}"></i> {{secondMenu.title}}
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+            </a>
+            <ul class="treeview-menu">
+              <li *ngFor="let thirdMenu of secondMenu?.children" (click)="selectThirdMenu(thirdMenu,thirdMenu.href)"
+                  [ngClass]="{'active':selectedThirdMenuId==thirdMenu.id}">
+                <a  >
+                  <i class="{{thirdMenu.icon}}"></i> {{thirdMenu.title}}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,98 @@
+<my-info   [msg]="msg" (msg_)="msg_($event)"></my-info>
+<section class="content-header">
+  <h1>
+    {{secondName}}
+    <small>{{firstName}}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a ><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a >{{firstName}}</a></li>
+    <li class="active">{{secondName}}</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">元素添加</h3>
+
+        </div>
+        <!-- /.box-header -->
+        <div class="panel-body">
+          <form class="form-horizontal" (ngSubmit)="onSubmit()" name="tElementform">
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">菜单</label>
+              <div class="col-sm-10">
+                <select [(ngModel)]="tElement.menuId" name="menuId" class="form-control">
+                  <option *ngFor="let menu of menuList" value="{{menu.id}}">{{menu.title}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">编码</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="tElement.code" name="code" type="text" class="form-control rounded">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">名称</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="tElement.name" name="name" type="text" class="form-control rounded">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">类型</label>
+              <div class="col-sm-10">
+                <select [(ngModel)]="tElement.type" name="type" class="form-control">
+                  <option value="button">按钮</option>
+                  <option value="uri">uri</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">uri</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="tElement.uri" name="uri" type="text" class="form-control rounded">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">path</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="tElement.path" name="path" type="text" class="form-control rounded">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">method</label>
+              <div class="col-sm-10">
+                <select [(ngModel)]="tElement.method" name="method" class="form-control">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="DELETE">DELETE</option>
+                  <option value="PUT">PUT</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="form-group">
+              <div class="col-sm-4 col-sm-offset-2">
+                <button type="button" class="btn btn-default" (click)="goBack()">返回</button>
+                <button type="submit" class="btn btn-primary">保存</button>
+              </div>
+            </div>
+
+
+
+          </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
+</section>

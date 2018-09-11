@@ -1,0 +1,76 @@
+<my-info   [msg]="msg" (msg_)="msg_($event)"></my-info>
+<section class="content-header">
+  <h1>
+    {{secondName}}
+    <small>{{firstName}}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a ><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a >{{firstName}}</a></li>
+    <li class="active">{{secondName}}</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">日志列表</h3>
+
+          <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive ">
+          <table class="table table-hover table-bordered">
+            <tr>
+              <th  style="width:8px;"></th>
+              <th>ID</th>
+              <th>用户名</th>
+              <th>操作时间</th>
+              <th>会话ID</th>
+              <th>ip</th>
+              <th>操作</th>
+              <th>方法</th>
+            </tr>
+            <tr *ngFor="let userLog of userLogList" (click)="onSelect(userLog);radio.checked=true;">
+              <td><input type="radio" name="r1" class="minimal" #radio ></td>
+              <td>{{userLog.id}}</td>
+              <td>{{userLog.username}}</td>
+              <td>{{userLog.optTime | date:'yyyy-mm-dd HH:mm:ss'}}</td>
+              <td>{{userLog.sessionId}}</td>
+              <td>{{userLog.ip}}</td>
+              <td>{{userLog.action}}</td>
+              <td>{{userLog.method}}</td>
+            </tr>
+            <tr>
+              <td colspan="9">
+                <form class="form-inline" style="float:right;">
+                  <div class="form-group">
+                    <pagination [disabled]="disabled" [totalItems]="totalItems"
+                                [itemsPerPage]="pageSize"
+                                (pageChanged)="pageChanged($event)"
+                                (numPages)="numPages($event)"
+                                [maxSize]="maxSize" [boundaryLinks]="true" class="pagination-sm"></pagination>
+                   </div>
+                </form>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
+</section>
+

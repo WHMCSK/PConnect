@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: pconnect-center
+
+server:
+    port: 8961
+
+eureka:
+    instance:
+        hostname: localhost
+    client:
+        #不要向注册中心注册自己
+        registerWithEureka: false
+        #禁止检索服务
+        fetchRegistry: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

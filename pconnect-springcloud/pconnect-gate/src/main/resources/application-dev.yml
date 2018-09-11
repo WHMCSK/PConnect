@@ -1,0 +1,95 @@
+spring:
+    application:
+        name: pconnect-gate
+    redis:
+        host: localhost
+        database: 7
+        pool:
+          max-active: 8
+          min-idle: 0
+          max-idle: 0
+          max-wait: -1
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+
+server:
+    port: 8965
+
+zuul:
+  routes:
+    pconnect-user:
+      path: /pconnect-user/**
+      serviceId: pconnect-user
+    pconnect-todo:
+      path: /pconnect-todo/**
+      serviceId: pconnect-todo
+  sensitive-headers:
+  host:
+     connect-timeout-millis: 60000
+     socket-timeout-millis: 60000
+
+# 负载均衡
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+eureka:
+    instance:
+        statusPageUrlPath: ${management.context-path}/info
+        healthCheckUrlPath: ${management.context-path}/health
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8961/eureka/
+security:
+    oauth2:
+      client:
+        client-id: pconnect-client
+        client-secret: pconnect-secret
+        scope: read,write
+        auto-approve-scopes: '.*'
+        grant-type: password
+    user:
+        name: admin
+        password: admin
+        role: USER
+    basic:
+      enabled: false
+
+# 熔断器，后备服务
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 60000
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+
+github:
+  client:
+    clientId: 5a2351a20bbb4297592f
+    clientSecret: 10f9ec57ffb067dd34214656aa3971fb31e7d500
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+#    pre-established-redirect-uri: http://localhost:8090/login/github
+#    registered-redirect-uri: http://localhost:8090/login/github
+#    use-current-uri: false
+  resource:
+    userInfoUri: https://api.github.com/user
+
+

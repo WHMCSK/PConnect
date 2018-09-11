@@ -1,0 +1,101 @@
+<my-info   [msg]="msg" (msg_)="msg_($event)"></my-info>
+<!--<my-content-header [firstName]="firstName" [secondName]="secondName"></my-content-header>-->
+<section class="content-header">
+  <h1>
+    {{secondName}}
+    <small>{{firstName}}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li><a href="#">{{firstName}}</a></li>
+    <li class="active">{{secondName}}</li>
+  </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">组织授权——<strong>{{tGroup.name}}</strong></h3>
+          <div class="btn-group" style="margin-left:10px;">
+            <button type="button"  class="btn btn-info" (click)="addGroupAuthority()">提交授权</button>
+          </div>
+
+        </div>
+        <!-- /.box-header
+                [dataReader]="'data'" [pageSize]="2"
+                [title]="'菜单列表'" [httpMethod]="'get'"
+                [httpUrl]="'assets/data/menus.json'"
+                (selectedRecord)="selectedMenu1($event)">
+         -->
+        <div class="box-body">
+          <amexio-card-pane>
+            <amexio-pane-header>
+              菜单列表
+            </amexio-pane-header>
+            <amexio-pane-body>
+              <amexio-tree-view [enableCheckBox]="true"
+                                (onTreeNodeChecked)="onCheckboxSelect($event)"
+                                (selectedRecord)="selectedRecord($event)"
+                                [dataTableBindData]="menuTree"
+              ></amexio-tree-view>
+            </amexio-pane-body>
+          </amexio-card-pane>
+
+         <!-- <amexio-card-pane>
+            <amexio-pane-body>
+              <amexio-tree-data-table
+                [dataReader]="'data'" [pageSize]="2"
+                [title]="'菜单列表'" [httpMethod]="'get'"
+                [httpUrl]="'assets/data/menus.json'"
+                (selectedRecord)="selectedMenu1($event)">
+                <amexio-data-table-column [dataIndex]="'title'" [dataType]="'string'" [hidden]="false" [text]="'名称'"></amexio-data-table-column>
+                <amexio-data-table-column [dataIndex]="'code'" [dataType]="'string'" [hidden]="false" [text]="'编码'"></amexio-data-table-column>
+                <amexio-data-table-column [dataIndex]="'icon'" [dataType]="'string'" [hidden]="false" [text]="'图标'"></amexio-data-table-column>
+              </amexio-tree-data-table>
+            </amexio-pane-body>
+          </amexio-card-pane>-->
+          <div >选中菜单：<span style="font-weight: bold;">{{selectedMenu.title}}</span></div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-6">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">元素</h3>
+
+
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered table-hover ">
+            <tr>
+              <th><input hidden="{{elementList?.length==0?'hidden':''}}" type="checkbox"  checked="{{selectedAll?'checked':''}}" class="minimal" (click)="selectedAllElement()" ></th>
+              <th>名称</th>
+              <th>uri</th>
+              <th>method</th>
+            </tr>
+            <tr *ngFor="let element of elementList"  >
+              <td>
+                <input type="checkbox"  checked="{{element.selected?'checked':''}}" class="minimal" (click)="selectedElement_(element)" >
+              </td>
+              <td>{{element.name}}</td>
+              <td>{{element.uri}}</td>
+              <td>{{element.method}}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+</section>
+

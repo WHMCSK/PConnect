@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bgenius.pconnect.user.mapper.TElementMapper" >
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.user.entity.TElement" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="uri" property="uri" jdbcType="VARCHAR" />
+    <result column="menu_id" property="menuId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="method" property="method" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="getListByMenuId" parameterType="Integer" resultMap="BaseResultMap"
+          statementType="PREPARED">
+    SELECT a.*
+    FROM t_element a WHERE a.menu_id=#{menuId}
+  </select>
+
+  <select id="getAuthorityElementsByUsername" resultMap="BaseResultMap" parameterType="String">
+  select DISTINCT d.* from t_user a
+  join t_user_group b on a.id = b.user_id
+  join t_authority c on c.authority_id = b.group_id
+  join t_element d on d.id = c.resource_id
+  where a.username = #{username} and c.authority_type = 'group' and c.resource_type = 'element';
+  </select>
+
+  <select id="getListByRole" resultMap="BaseResultMap" parameterType="String">
+    select DISTINCT a.* from t_element  a
+    join t_authority b on a.id = b.resource_id
+    join t_group c on c.id = b.authority_id
+    where c.`code` = #{role}
+  </select>
+</mapper>

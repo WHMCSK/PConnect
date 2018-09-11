@@ -1,0 +1,26 @@
+
+*{margin: 0; padding: 0;}
+
+.ta_c{text-align: center;
+  margin-top: 150px;}
+
+@-webkit-keyframes rotation{
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+
+.Rotation{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 3s linear infinite;
+  -moz-animation: rotation 3s linear infinite;
+  -webkit-animation: rotation 3s linear infinite;
+  -o-animation: rotation 3s linear infinite;
+}
+
+.skin-blue .main-header .logo{
+  background-color:#40485b
+}
+
+.skin-blue .main-header .navbar{
+  background-color:#40485b
+}

@@ -1,0 +1,36 @@
+<my-info [alert]="alert"  [timeOut]="2000"  [msg]="msg" (msg_)="msg_($event)"></my-info>
+<div class="container">
+  <div class="form-box">
+    <div class="sign-tab">
+      <span id="nBtn" class="on">注册</span>
+    </div>
+
+    <!-- 用户名注册 -->
+    <div id='nForm' class="formbox">
+      <form class="form" id="f2"   method="post">
+        <p class="inp">
+          <input  name="username" [(ngModel)]="tUser.username"  placeholder="请输入用户名"
+                  type="text" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+        <p class="inp">
+          <input  name="email" [(ngModel)]="tUser.email"  placeholder="邮箱"
+                  type="text" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+        <p class="inp">
+          <input  name="mobilePhone" [(ngModel)]="tUser.mobilePhone"  placeholder="手机号码"
+                  type="text" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+        <p class="inp">
+          <input name="password" [(ngModel)]="tUser.password" placeholder="密码"
+                 type="password" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+
+        <p class="inp2">
+          <button type="button" class="btn btn-default" (click)="goBack()">返回</button>
+          <input (click)="register()" type="button" value="注册" id="nLogin">
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>

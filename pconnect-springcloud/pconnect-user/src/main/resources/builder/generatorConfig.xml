@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<property name="mergeable" value="false"></property>
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+		</plugin>
+
+<!--		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/pconnect_auth?useUnicode=true&amp;characterEncoding=UTF8"
+			userId="root" password="xfd4m463$#ked@&amp;!EDQd">
+		</jdbcConnection>-->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://localhost:3306/pconnect_auth?useUnicode=true&amp;characterEncoding=UTF8"
+						userId="root" password="">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="${targetModelPackage}"
+			targetProject="${targetJavaProject}" />
+
+		<sqlMapGenerator targetPackage="${targetXMLPackage}"
+			targetProject="${targetResourcesProject}" />
+
+		<javaClientGenerator targetPackage="${targetMapperPackage}"
+			targetProject="${targetJavaProject}" type="XMLMAPPER" />
+<!--		<table tableName="t_user" domainObjectName="TUser"/>
+		<table tableName="t_menu" domainObjectName="TMenu"/>
+		<table tableName="t_element" domainObjectName="TElement"/>
+		<table tableName="t_authority" domainObjectName="TAuthority"/>
+		<table tableName="t_group" domainObjectName="TGroup"/>
+		<table tableName="t_group_type" domainObjectName="TGroupType"/>
+		<table tableName="t_user_group" domainObjectName="TUserGroup"/>
+		<table tableName="t_dict" domainObjectName="TDict"/>-->
+		<table tableName="t_user_log" domainObjectName="TUserLog"/>
+
+	</context>
+</generatorConfiguration>

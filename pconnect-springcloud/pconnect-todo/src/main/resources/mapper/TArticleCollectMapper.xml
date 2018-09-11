@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bgenius.pconnect.todo.mapper.TArticleCollectMapper">
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.todo.entity.TArticleCollect">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_url" jdbcType="VARCHAR" property="articleUrl" />
+    <result column="article_brief_desc" jdbcType="VARCHAR" property="articleBriefDesc" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="tag_wait_for_done" jdbcType="VARCHAR" property="tagWaitForDone" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="word_write_time" jdbcType="TIMESTAMP" property="wordWriteTime" />
+    <result column="origin_write_time" jdbcType="TIMESTAMP" property="originWriteTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_timestamp" jdbcType="TIMESTAMP" property="lastTimestamp" />
+    <result column="article_content" jdbcType="LONGVARCHAR" property="articleContent" />
+  </resultMap>
+</mapper>

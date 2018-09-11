@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bgenius.pconnect.todo.mapper.TGlossaryMapper">
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.todo.entity.TGlossary">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="term" jdbcType="VARCHAR" property="term" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="id_it_system" jdbcType="INTEGER" property="idItSystem" />
+    <result column="id_prj_project" jdbcType="INTEGER" property="idPrjProject" />
+    <result column="urls" jdbcType="VARCHAR" property="urls" />
+    <result column="is_deprecate" jdbcType="INTEGER" property="isDeprecate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_timestamp" jdbcType="TIMESTAMP" property="lastTimestamp" />
+  </resultMap>
+</mapper>

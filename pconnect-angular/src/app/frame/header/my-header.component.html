@@ -1,0 +1,53 @@
+<header class="main-header">
+  <!-- Logo -->
+  <a  class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>P</b>Connect</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>P</b>Connect</span>
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
+    <!-- Sidebar toggle button-->
+    <a   class="sidebar-toggle" data-toggle="offcanvas" role="button" (click)="dropdownToggle()" >
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+
+    <div class="navbar-custom-menu">
+      <ul  class="nav navbar-nav">
+        <!-- Messages: style can be found in dropdown.less-->
+        <!-- User Account: style can be found in dropdown.less -->
+        <li dropdown  class="dropdown user user-menu">
+          <a href dropdownToggle (click)="false">
+            <img src="assets/img/PConnect-left-w.png" class="user-image" alt="User Image">
+            <span class="hidden-xs">{{username}}</span>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu">
+            <!-- User image -->
+            <li role="menuitem" class="user-header">
+              <img src="assets/img/PConnect-left-w.png" class="img-circle" alt="User Image">
+
+              <p>
+                {{username}} - 架构师
+                <small>加入会员：2012-09-09</small>
+              </p>
+            </li>
+            <!-- Menu Body -->
+
+            <!-- Menu Footer-->
+            <li role="menuitem" class="user-footer">
+              <div class="pull-left">
+              <!--  <a href="/index" class="btn btn-default btn-flat">配置</a>-->
+              </div>
+              <div class="pull-right">
+                <a (click)="logout()" class="btn btn-default btn-flat">登出</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+
+      </ul>
+    </div>
+  </nav>
+</header>

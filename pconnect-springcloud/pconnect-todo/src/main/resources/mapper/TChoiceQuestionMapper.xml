@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bgenius.pconnect.todo.mapper.TChoiceQuestionMapper">
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.todo.entity.TChoiceQuestion">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="study_card_content" jdbcType="VARCHAR" property="studyCardContent" />
+    <result column="urls" jdbcType="VARCHAR" property="urls" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="audit_state" jdbcType="VARCHAR" property="auditState" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_timestamp" jdbcType="TIMESTAMP" property="lastTimestamp" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bgenius.pconnect.user.mapper.TMenuMapper" >
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.user.entity.TMenu" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="href" property="href" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="enabled" property="enabled" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="getAuthorityMenusByUsername" resultMap="BaseResultMap" parameterType="String">
+    select DISTINCT d.* from t_user a
+    join t_user_group b on a.id = b.user_id
+    join t_authority c on c.authority_id = b.group_id
+    join t_menu d on d.id = c.resource_id
+    where a.username = #{username} and c.authority_type = 'group' and c.resource_type = 'menu';
+  </select>
+</mapper>

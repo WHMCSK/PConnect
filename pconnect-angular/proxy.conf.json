@@ -1,0 +1,11 @@
+{
+  "/pconnect-user": {
+    "target": "http://localhost:8965"
+  },
+  "/": {
+    "target": "http://localhost:8965"
+  },
+  "/apis": {
+    "target": "http://localhost:8965"
+ }
+}

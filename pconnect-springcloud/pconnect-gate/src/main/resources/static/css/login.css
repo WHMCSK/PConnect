@@ -1,0 +1,137 @@
+* {margin: 0; padding: 0;}
+body {background-color: rgba(54,65,80,1); overflow: hidden;}
+.container {
+	width: 364px;
+	margin: 50px auto;
+}
+.logo {
+	width: 315px;
+	margin: 20px auto;
+	height: 30px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.logo img {
+	display: inline-block;
+	height: 30px;
+	width: 40px;
+	float: left;
+}
+.logo a {
+	line-height: 30px;
+	color: white;
+	font-size: 24px;
+	float: left;
+	margin-left: 15px;
+}
+.form-box {
+	width: 360px;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 10px 30px;
+	position: relative;
+}
+.sign-tab {
+	width: 100%;
+	overflow: hidden;
+}
+.sign-tab span {
+	width: 50%;
+	float: left;
+	line-height: 45px;
+	text-align: center;
+	border-bottom: 3px solid #eee;
+	box-sizing: border-box;
+	color: #333;
+	cursor: pointer;
+}
+.sign-tab span.on {
+	border-bottom: 3px solid #42A4FC;
+}
+.formbox {
+	width: 100%;
+	margin-top: 30px;
+}
+.formbox p {
+	line-height: 35px;
+	margin-bottom: 15px;
+
+}
+.formbox p.inp input {
+	display: inline-block;
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border: none;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	text-indent: 40px;
+	border-left: 2px solid #42A4FC;
+
+}
+.formbox p.inp2 {
+	overflow: hidden;
+	padding-top: 15px;
+}
+.formbox p.inp2 input {
+	float: right;
+	outline: none;
+	border: none;
+	background-color: #42A4FC;
+	color: white;
+	width: 80px;
+	height: 35px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.formbox p.inp2 a {
+	float: left;
+	color: #42A4FC;
+	font-size: 16px;
+	line-height: 35px;
+	cursor: pointer;
+}
+.formbox p.inp2 a:hover {
+	text-decoration: underline;
+}
+.formbox p.inp3 {
+	overflow: hidden;
+}
+.formbox p.inp3 input {
+	float: left;
+	outline: none;
+	border: none;
+	border: 1px solid #ccc;
+	height: 35px;
+	text-indent: 40px;
+	border-radius: 3px;
+	border-left: 2px solid #42A4FC;
+
+}
+.formbox p.inp3 span {
+	float: right;
+	height: 35px;
+	background-color: #ddd;
+	padding: 0 15px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	color: #555;
+}
+.formbox p.inp3 span:hover {
+	background-color: #ccc;
+}
+.f-m {
+	background: url('../img/m.png') no-repeat 5px 0/ 35px 35px;
+}
+.f-y {
+	background: url('../img/y.png') no-repeat 7px 2px/ 30px 30px;
+}
+.f-u {
+	background: url('../img/u.png') no-repeat 5px 0/ 35px 35px;
+}
+.f-p {
+	background: url('../img/p.png') no-repeat 7px 2px/ 30px 30px;
+}

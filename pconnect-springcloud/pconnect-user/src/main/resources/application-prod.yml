@@ -1,0 +1,86 @@
+spring:
+    application:
+        name: pconnect-user
+    datasource:
+        name: test
+        url: jdbc:mysql://localhost:3306/pconnect-auth?useUnicode=true&characterEncoding=UTF8
+        username:
+        password:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    redis:
+        host:  localhost
+        password:
+        database: 6
+        timeout: 1800
+        pool:
+          max-active: 8
+          min-idle: 0
+          max-idle: 0
+          max-wait: -1
+
+server:
+    port: 8964
+
+security:
+    oauth2:
+      client:
+        client-id: xfdmao-client
+        client-secret: xfdmao-secret
+        scope: read,write
+        auto-approve-scopes: '.*'
+        grant-type: password
+    user:
+        name: admin
+        password: admin
+        role: USER
+    basic:
+      enabled: false
+
+mybatis:
+    basepackage: cn.bgenius.pconnect.user.mapper
+    xmlLocation: classpath:mapper/**/*.xml
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8961/eureka/
+
+management:
+  security:
+    enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000 #缺省为1000
+
+logging:
+    level:
+        tk.mybatis: DEBUG
+        cn.bgenius.pconnect.user: DEBUG
+    config: classpath:logback.xml
+    path: /pconnect/user
+
+swagger:
+    basepackage: cn.bgenius.pconnect.user.controller
+    service:
+        name: pconnect-user
+        description: pconnect-user后端服务接口
+        developer: F1

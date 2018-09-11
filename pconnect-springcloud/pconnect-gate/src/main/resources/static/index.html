@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PConnect</title>
+	<link rel="shortcut icon" type="image/png" href="./fav.ico"/>
+	
+
+</head>
+<body>
+<div class="container">
+
+	<h1>登录成功</h1> 
+	<input type="button" value="登出" id="nLogout">
+	<div id="content">sessionInfo</div>
+</div>
+
+		<script src='./js/jquery-2.1.1.min.js'></script>
+	<script>
+	$.ajax({
+		type: 'GET',
+		url: 'http://localhost:8965/pconnect-user/v1/session/sessionInfo',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(data){
+			console.log(data);
+            $("#content").html(JSON.stringify(data));
+		}
+	})
+			
+			
+	// 用户名登出
+	$('#nLogout').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:8965/logout',
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function(data){
+				if((data.data && data.data) || data.code == 100){
+					window.location.href = "login.html";
+				}
+			}
+		})
+	});
+
+	</script>
+</body>
+</html>

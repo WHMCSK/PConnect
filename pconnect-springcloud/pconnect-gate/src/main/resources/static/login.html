@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>station</title>
+	<link rel="shortcut icon" type="image/png" href="./fav.ico"/>
+	<link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+			<a>PConnect</a>
+		</div>
+		<div class="form-box">
+			<div class="sign-tab">
+				<span id="mBtn">短信登录</span>
+				<span id="nBtn" class="on">密码登录</span>
+			</div>
+
+			<!-- 手机登录 -->
+			<div id="mForm" class="formbox" style="display: none;">
+				<form class="form" id="f1" action="/login" method="post">
+					<p class="inp"><input class="f-m" autofocus name="username" placeholder="请输入手机号" type="text"></p>
+					<p class="inp3"><input class="f-y" name="password" placeholder="验证码" type="password"><span onclick="getCode()">获取验证码</span></p>
+					<p class="inp2"><input type="button" value="登录" id="mLogin"></p>
+				</form>
+			</div>
+
+			<!-- 用户名登录 -->
+			<div id='nForm' class="formbox">
+				<form class="form" id="f2" action="/login" method="post">
+					<p class="inp"><input class="f-u" autofocus name="username" value="xiaoliu" placeholder="请输入用户名" type="text"></p>
+					<p class="inp"><input class="f-p" name="password" value="123456" placeholder="密码" type="password"></p>
+					<p class="inp2"><input type="button" value="登录" id="nLogin"></p>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script src='./js/jquery-2.1.1.min.js'></script>
+	<script>
+		// tabs切换
+		$('#mBtn').click(function(){
+			$('#mForm').show();
+			$('#nForm').hide();
+			$(this).addClass('on');
+			$('#nBtn').removeClass('on');
+		});
+		$('#nBtn').click(function(){
+			$('#nForm').show();
+			$('#mForm').hide();
+			$(this).addClass('on');
+			$('#mBtn').removeClass('on');
+		});
+
+
+        // 用户名登录
+        $('#nLogin').click(function(){
+             //$("#f2").submit();
+			var param ={'username':'xiaoliu','password':'123456'};
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8965/login',
+                data: param,
+				xhrFields: {
+					withCredentials: true
+				},
+				crossDomain: true,
+                success: function(data){
+                    console.log(data);
+                    if(data.data && data.data.success && data.data.userDetails.username){
+                        window.location.href = "index.html";
+					}
+                }
+            })
+        });
+
+	</script>
+	
+</body>
+</html>
