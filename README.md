@@ -77,7 +77,9 @@ ng serve
 
 #### 访问
 ```
-http://localhost:4200 
+前端项目： http://localhost:4200 
+服务发现： http://127.0.0.1:8961
+SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 ```
 
 ## 功能      
