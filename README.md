@@ -48,13 +48,13 @@ PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管
     配置文件统一管理
 
 ## 开发环境
-- node-v6.11.0-x64.msi
-- redis3.X
+- node v8.11.4
+- redis-5.x
 - jdk1.8
-- MySQL Server 5.6
+- 10.2.15-MariaDB-10.2.15+maria~jessie
 - maven3.X
 - IntelliJ IDEA 
-- webstorm
+- vscode
 
 
 ## 部署项目
