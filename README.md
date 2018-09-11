@@ -73,6 +73,7 @@ ng serve
 - CenterBootstrap
 - GateBootstrap
 - UserBootstrap  
+- TodoBootstrap  
 
 #### 访问
 ```
@@ -86,6 +87,8 @@ http://localhost:4200
 - 组织架构管理————组织管理、关联用户、组织授权  
 - 数据字典
 - 日志管理
+- todo管理
+- 词汇表管理
   
  
 ## 效果展示
