@@ -20,7 +20,7 @@
                 </jdbcConnection>-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/pconnect?useUnicode=true&amp;characterEncoding=UTF8"
-                        userId="root" password="whf08599">
+                        userId="root" password="Neural!@#123">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="${targetModelPackage}"

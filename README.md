@@ -1,6 +1,12 @@
 #  **PConnect 全栈必备** 
 PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管理、区域管理、GIS地图、......)，其核心设计目标是分离前后端、开发快速、学习简单、功能强大、不重复造轮子，其目标是帮助企业搭建一套基础功能框架；  
 
+主要技术：
+
+- 前端技术：Angular4；
+- 后端技术：SpringCloud；
+
+
 整合计划：
 
 | 技术条目 | 待整合 | 已整合 |
@@ -20,12 +26,6 @@ PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管
 | Mysql |  | * |
 | Flyway | * |  |
 
-
-- 前端技术：Angular4；
-- 后端技术：SpringCloud；
-
-
-Flyway
 
 交流QQ群：23592723  
 
