@@ -3,7 +3,7 @@ spring:
         name: pconnect-user
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/pconnect-auth?useUnicode=true&characterEncoding=UTF8
+        url: jdbc:mysql://localhost:3306/pconnect_auth?useUnicode=true&characterEncoding=UTF8
         username:
         password:
         type: com.alibaba.druid.pool.DruidDataSource
@@ -84,3 +84,6 @@ swagger:
         name: pconnect-user
         description: pconnect-user后端服务接口
         developer: F1
+
+flyway:
+  enabled: true

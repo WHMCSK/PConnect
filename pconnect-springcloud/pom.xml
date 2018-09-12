@@ -27,6 +27,7 @@
         <module>pconnect-common</module>
         <module>pconnect-user</module>
         <module>pconnect-todo</module>
+        <module>pconnect-dbcreate</module>
     </modules>
     <packaging>pom</packaging>
     <developers>

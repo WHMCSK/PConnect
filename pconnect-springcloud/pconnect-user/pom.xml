@@ -22,6 +22,20 @@
         <targetXMLPackage>mapper</targetXMLPackage>
         <!-- 依赖版本 -->
         <mapper.version>3.3.6</mapper.version>
+        <!-- Properties are prefixed with flyway. -->
+        <flyway.user>root</flyway.user>
+        <flyway.password>Neural!@#123</flyway.password>
+        <!--<flyway.url>jdbc:mysql://localhost:3306/pconnect_auth</flyway.url>-->
+        <flyway.driver>com.mysql.jdbc.Driver</flyway.driver>
+        <flyway.table>flyway_schema_history</flyway.table>
+
+        <!-- List are defined as comma-separated values -->
+        <flyway.schemas>pconnect_auth</flyway.schemas>
+        <flyway.encoding>UTF-8</flyway.encoding>
+
+        <!--&lt;!&ndash; Individual placeholders are prefixed by flyway.placeholders. &ndash;&gt;-->
+        <!--<flyway.placeholders.keyABC>valueXYZ</flyway.placeholders.keyABC>-->
+        <!--<flyway.placeholders.otherplaceholder>value123</flyway.placeholders.otherplaceholder>-->
     </properties>
     <dependencies>
         <dependency>
@@ -147,6 +161,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.1.4</version>
+        </dependency>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.flywaydb.flyway-test-extensions/flyway-spring-test &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.flywaydb.flyway-test-extensions</groupId>-->
+            <!--<artifactId>flyway-spring-test</artifactId>-->
+            <!--<version>5.0.0</version>-->
+        <!--</dependency>-->
     </dependencies>
     <build>
         <finalName>pconnect-user</finalName>
@@ -178,6 +206,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--数据库版本maven执行插件-->
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.1.4</version>
+                <executions>
+                    <execution>
+                        <id>pconnect_auth</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

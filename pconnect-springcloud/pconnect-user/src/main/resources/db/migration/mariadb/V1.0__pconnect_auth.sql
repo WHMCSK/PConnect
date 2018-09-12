@@ -12,6 +12,9 @@ File Encoding         : 65001
 
 Date: 2017-11-30 13:38:27
 */
+-- CREATE SCHEMA IF NOT EXISTS `pconnect_auth` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+--
+-- USE pconnect_auth;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -293,18 +296,18 @@ CREATE TABLE `t_menu` (
 -- ----------------------------
 -- Records of t_menu
 -- ----------------------------
-INSERT INTO `t_menu` VALUES ('1', 'userManager', '用户管理', '5', '/index/tUserList', 'fa fa-user', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
+INSERT INTO `t_menu` VALUES ('1', 'userManager', '用户管理', '5', '/privilege/tUserList', 'fa fa-user', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
 INSERT INTO `t_menu` VALUES ('5', 'baseManager', '基础配置', '13', '/', 'fa fa-cog', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
-INSERT INTO `t_menu` VALUES ('6', 'menuManager', '菜单管理', '5', '/index/tMenuList', 'fa fa-list', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
-INSERT INTO `t_menu` VALUES ('7', 'groupManager', '组织架构管理', '5', '/index/tGroupList', 'fa fa-users', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
-INSERT INTO `t_menu` VALUES ('8', 'groupTypeManager', '组织类型管理', '5', '/index/tGroupTypeList', 'fa fa-object-group', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
+INSERT INTO `t_menu` VALUES ('6', 'menuManager', '菜单管理', '5', '/privilege/tMenuList', 'fa fa-list', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
+INSERT INTO `t_menu` VALUES ('7', 'groupManager', '组织架构管理', '5', '/privilege/tGroupList', 'fa fa-users', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
+INSERT INTO `t_menu` VALUES ('8', 'groupTypeManager', '组织类型管理', '5', '/privilege/tGroupTypeList', 'fa fa-object-group', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
 INSERT INTO `t_menu` VALUES ('13', 'adminSys', '权限管理系统', '-1', '/', 'fa fa-terminal', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
 INSERT INTO `t_menu` VALUES ('14', 'contentSys', '区域管理系统', '-1', '/', 'fa-newspaper-o', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
-INSERT INTO `t_menu` VALUES ('21', 'dictManager', '数据字典', '5', '/index/tDictList', 'fa fa-book', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
+INSERT INTO `t_menu` VALUES ('21', 'dictManager', '数据字典', '5', '/privilege/tDictList', 'fa fa-book', '0', null, 'Y', '2017-10-06 15:36:15', '2017-10-06 15:36:15');
 INSERT INTO `t_menu` VALUES ('33', 'areaManager', '区域管理', '14', '/', 'fa fa-map-o', '0', null, 'Y', '2017-10-17 21:44:03', '2017-10-17 21:44:03');
-INSERT INTO `t_menu` VALUES ('34', 'country', '国家', '33', '/index/tDictList', 'fa fa-clone', '0', null, 'Y', '2017-10-17 21:46:21', '2017-10-17 21:46:21');
-INSERT INTO `t_menu` VALUES ('35', 'province', '省会', '33', '/index/tDictList', 'fa  fa-film', '0', null, 'Y', '2017-10-17 21:49:49', '2017-10-17 21:49:49');
-INSERT INTO `t_menu` VALUES ('36', 'user-log', '用户操作日志', '5', '/index/tUserLogList', 'fa fa-book', '0', null, 'Y', '2017-11-28 23:14:35', '2017-11-28 23:14:35');
+INSERT INTO `t_menu` VALUES ('34', 'country', '国家', '33', '/privilege/tDictList', 'fa fa-clone', '0', null, 'Y', '2017-10-17 21:46:21', '2017-10-17 21:46:21');
+INSERT INTO `t_menu` VALUES ('35', 'province', '省会', '33', '/privilege/tDictList', 'fa  fa-film', '0', null, 'Y', '2017-10-17 21:49:49', '2017-10-17 21:49:49');
+INSERT INTO `t_menu` VALUES ('36', 'user-log', '用户操作日志', '5', '/privilege/tUserLogList', 'fa fa-book', '0', null, 'Y', '2017-11-28 23:14:35', '2017-11-28 23:14:35');
 
 -- ----------------------------
 -- Table structure for t_user

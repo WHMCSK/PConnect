@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>2.0.3.RELEASE</version>-->
+    <!--</parent>-->
+    <parent>
+        <artifactId>bgenius-pconnect</artifactId>
+        <groupId>cn.bgenius.pconnect</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.bgenius.pconnect</groupId>
+    <artifactId>pconnect-dbcreate</artifactId>
+    <version> 1.0-SNAPSHOT </version>
+
+    <properties>
+
+        <flyway.user>root</flyway.user>
+        <flyway.password>Neural!@#123</flyway.password>
+        <flyway.url>jdbc:mysql://localhost:3306/pconnect</flyway.url>
+        <flyway.driver>com.mysql.jdbc.Driver</flyway.driver>
+        <flyway.table>flyway_schema_history</flyway.table>
+
+        <!-- List are defined as comma-separated values -->
+        <flyway.schemas>pconnect</flyway.schemas>
+        <flyway.encoding>UTF-8</flyway.encoding>
+
+        <!--&lt;!&ndash; Individual placeholders are prefixed by flyway.placeholders. &ndash;&gt;-->
+        <!--<flyway.placeholders.keyABC>valueXYZ</flyway.placeholders.keyABC>-->
+        <!--<flyway.placeholders.otherplaceholder>value123</flyway.placeholders.otherplaceholder>-->
+    </properties>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.bgenius.pconnect</groupId>
+            <artifactId>pconnect-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.11</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.30</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.1.4</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>pconnect-dbcreate</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--数据库版本maven执行插件-->
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.1.4</version>
+                <executions>
+                    <execution>
+                        <id>pconnect</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -87,3 +87,6 @@ swagger:
         name: pconnect-user
         description: pconnect-user后端服务接口
         developer: F1
+
+flyway:
+  enabled: true

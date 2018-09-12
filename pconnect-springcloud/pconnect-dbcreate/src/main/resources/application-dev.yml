@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: pconnect-dbcreate
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/pconnect?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: Neural!@#123
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+server:
+  port: 8962
+
+logging:
+  level:
+    tk.mybatis: DEBUG
+    cn.bgenius.pconnect.dbcreate: DEBUG
+  config: classpath:logback.xml
+  path: .
+
+
+flyway:
+  enabled: true

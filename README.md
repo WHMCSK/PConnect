@@ -1,33 +1,13 @@
 #  **PConnect 全栈必备** 
-PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管理、区域管理、GIS地图、......)，其核心设计目标是分离前后端、开发快速、学习简单、功能强大、不重复造轮子，其目标是帮助企业搭建一套基础功能框架；  
+PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管理、区域管理、GIS地图、......)，其核心设计目标是分离前后端、开发快速、学习简单、功能强大、不重复造轮子，其目标是帮助企业搭建一套基础功能框架 
+
+交流QQ群：23592723 
 
 主要技术：
 
 - 前端技术：Angular4；
 - 后端技术：SpringCloud；
-
-
-整合计划：
-
-| 技术条目 | 待整合 | 已整合 |
-| --- | --- | --- |
-| angualr |  | * |
-| Spring Cloud |  | * |
-| OAuth2 |  | * |
-| jwt |  | * |
-| Spring Cloud Security |  | * |
-| Eureka |  | * |
-| Zuul |  | * |
-| Hystrix |  | * |
-| Feign |  | * |
-| Ribbon |  | * |
-| Redis |  | * |
-| Mybatis |  | * |
-| Mysql |  | * |
-| Flyway | * |  |
-
-
-交流QQ群：23592723  
+ 
 
 # 架构设计 
 ![img](http://on-img.com/chart_image/5954b886e4b0ad619ac73246.png)
@@ -106,16 +86,53 @@ ng serve
 SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 ```
 
-## 功能      
-- 用户管理     
-- 菜单管理  
-- 组织类型管理  
-- 组织架构管理————组织管理、关联用户、组织授权  
-- 数据字典
-- 日志管理
-- todo管理
-- 词汇表管理
+
+### 框架整合计划：
+
+| 技术条目 | 待整合 | 已整合 |
+| --- | --- | --- |
+| angualr |  | * |
+| Spring Cloud |  | * |
+| OAuth2 |  | * |
+| jwt |  | * |
+| Spring Cloud Security |  | * |
+| Eureka |  | * |
+| Zuul |  | * |
+| Hystrix |  | * |
+| Feign |  | * |
+| Ribbon |  | * |
+| Redis |  | * |
+| Redis Session |  | * |
+| Security |  | * |
+| Mybatis |  | * |
+| Mysql |  | * |
+| Swagger |  | * |
+| Config |  | * |
+| Flyway | * |  |
+| Dockerfile | * |  |
+| docker-compose | * |  |
+
+## 功能规划      
+
+| 功能 | 计划 | 已完成 |
+| --- | --- | --- |
+| 用户管理 |  | * |
+| 菜单管理 Cloud |  | * |
+| 组织类型管理 |  | * |
+| 组织架构管理————组织管理、关联用户、组织授权 |  | * |
+| 数据字典 |  | * |
+| 日志管理 |  | * |
+| todo管理 |  | * |
+| 词汇表管理 |  | * |
+| 知识库管理 | * |  |
+| 选择题维护 | * |  |
+| 插件管理 | * |  |
   
- 
+
+### 非功能任务列表：
+
+* Mysql配置成SSL连接
+
+
 ## 效果展示
 
