@@ -1,11 +1,11 @@
 #  **PConnect 全栈必备** 
-PConnect是基于Angular4+SpringCloud的企业级基础功能框架(户权限管理、区域管理、GIS地图、......)，其核心设计目标是分离前后端、开发快速、学习简单、功能强大、不重复造轮子，其目标是帮助企业搭建一套基础功能框架 
+PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管理、菜单管理、组织管理、知识库管理、......)，其核心设计目标是提供大型项目框架模版、开发快速、学习简单、功能强大、不重复造轮子
 
 交流QQ群：23592723 
 
 主要技术：
 
-- 前端技术：Angular4；
+- 前端技术：AngularX；
 - 后端技术：SpringCloud；
  
 
@@ -73,10 +73,12 @@ ng serve
 ```
 
 #### 后台部署 
-后台依次启动
-- CenterBootstrap
-- GateBootstrap
+后台启动前先在连接的mysql数据库中建立pconnect、pconnect_auth两个空数据库，然后依次启动：
+
+- CenterBootstrap  
+- GateBootstrap  
 - UserBootstrap  
+- DBCreateBootstrap  
 - TodoBootstrap  
 
 #### 访问
@@ -85,6 +87,7 @@ ng serve
 服务发现： http://127.0.0.1:8961
 SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 ```
+需要注意： 每个功能页面要在菜单中出现并正常访问，需要在“菜单管理”功能中进行配置，并且还要给访问的账号角色配置对应的权限，所以有时候新做的页面没来得及将其配置信息做到数据库初始化脚本中，请大家在这时候自行在前端路由代码中找到相应网页链接，然后在“菜单管理”中配置好，然后再给对应角色赋予权限，才能看到新开发的页面。
 
 
 ### 框架整合计划：
@@ -108,7 +111,7 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 | Mysql |  | * |
 | Swagger |  | * |
 | Config |  | * |
-| Flyway | * |  |
+| Flyway |  | * |
 | Dockerfile | * |  |
 | docker-compose | * |  |
 
