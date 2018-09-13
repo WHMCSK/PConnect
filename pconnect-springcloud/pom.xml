@@ -3,10 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
 
     <groupId>cn.bgenius.pconnect</groupId>
     <artifactId>bgenius-pconnect</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
     <licenses>
         <license>
             <name>Apache 2</name>
@@ -15,28 +28,24 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
-    </parent>
+
     <modules> 
-        <module>pconnect-center</module>
-        <module>pconnect-api</module>
-        <module>pconnect-gate</module>
-        <module>pconnect-common</module>
-        <module>pconnect-user</module>
-        <module>pconnect-todo</module>
-        <module>pconnect-dbcreate</module>
+        <module>/pubsrvs/pconnect-center</module>
+        <module>/libs/pconnect-api</module>
+        <module>/pubsrvs/pconnect-gate</module>
+        <module>/libs/pconnect-common</module>
+        <module>/pubsrvs/pconnect-user</module>
+        <module>/bizsrvs/pconnect-todo</module>
+        <module>/dbs/pconnect-dbcreate</module>
     </modules>
-    <packaging>pom</packaging>
+
     <developers>
         <developer>
-            <name>F1</name>
-            <email>cissalcliu@163.com</email>
+            <name>金飞</name>
+            <email>28206254@qq.com</email>
         </developer>
     </developers>
-    <!--依赖管理，用于管理spring-cloud的依赖，其中Camden.SR3是版本号-->
+    <!--依赖管理，用于管理spring-cloud的依赖，其中Camden.SR5是版本号-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -58,13 +67,13 @@
 
     <build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>

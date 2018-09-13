@@ -62,7 +62,7 @@ PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管
 
 
 ## 部署项目
-#### 前端部署  
+#### 前端开发运行  
 安装node-v6.11.0-x64.msi  
 ```
 npm config set registry https://registry.npm.taobao.org
@@ -72,7 +72,7 @@ npm install
 ng serve
 ```
 
-#### 后台部署 
+#### 后台开发运行 
 后台启动前先在连接的mysql数据库中建立pconnect、pconnect_auth两个空数据库，然后依次启动：
 
 - CenterBootstrap  
@@ -89,6 +89,20 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 ```
 需要注意： 每个功能页面要在菜单中出现并正常访问，需要在“菜单管理”功能中进行配置，并且还要给访问的账号角色配置对应的权限，所以有时候新做的页面没来得及将其配置信息做到数据库初始化脚本中，请大家在这时候自行在前端路由代码中找到相应网页链接，然后在“菜单管理”中配置好，然后再给对应角色赋予权限，才能看到新开发的页面。
 
+#### 打包项目
+
+在根目录运行
+```
+./mvnw install
+```
+
+#### 生成docker image
+
+在根目录运行
+```
+./mvnw install
+```
+就会生成可以部署的docker image
 
 ### 框架整合计划：
 
@@ -112,7 +126,7 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 | Swagger |  | * |
 | Config |  | * |
 | Flyway |  | * |
-| Dockerfile | * |  |
+| Docker部署 |  | * |
 | docker-compose | * |  |
 
 ## 功能规划      
@@ -129,6 +143,7 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 | 词汇表管理 |  | * |
 | 知识库管理 | * |  |
 | 选择题维护 | * |  |
+| 盘点管理 | * |  |
 | 插件管理 | * |  |
   
 
