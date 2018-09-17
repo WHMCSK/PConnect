@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bgenius.pconnect.knw.mapper.TTodoesDoRecordMapper" >
+  <resultMap id="BaseResultMap" type="cn.bgenius.pconnect.knw.entity.TTodoesDoRecord" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="todoesid" property="todoesid" jdbcType="INTEGER" />
+    <result column="pre_status" property="preStatus" jdbcType="VARCHAR" />
+    <result column="current_status" property="currentStatus" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="current_time" property="currentTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_timestamp" property="lastTimestamp" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

@@ -30,12 +30,12 @@
         <!-- Properties are prefixed with flyway. -->
         <flyway.user>root</flyway.user>
         <flyway.password>Neural!@#123</flyway.password>
-        <flyway.url>jdbc:mysql://localhost:3306/pconnect_auth</flyway.url>
+        <flyway.url>jdbc:mysql://localhost:3306/pconnect_auth_dev</flyway.url>
         <flyway.driver>com.mysql.jdbc.Driver</flyway.driver>
         <flyway.table>flyway_schema_history</flyway.table>
 
         <!-- List are defined as comma-separated values -->
-        <flyway.schemas>pconnect_auth</flyway.schemas>
+        <flyway.schemas>pconnect_auth_dev</flyway.schemas>
         <flyway.encoding>UTF-8</flyway.encoding>
 
         <!--&lt;!&ndash; Individual placeholders are prefixed by flyway.placeholders. &ndash;&gt;-->

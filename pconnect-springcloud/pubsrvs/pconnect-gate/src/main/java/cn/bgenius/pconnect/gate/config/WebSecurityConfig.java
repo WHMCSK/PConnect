@@ -52,9 +52,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     web.ignoring().antMatchers("/js/**", "/img/**", "/css/**", "/images/**", "/assets/**");
     web.ignoring().antMatchers("fav.ico");
     web.ignoring().antMatchers("/pconnect-user/v1/tUser/register");
-    web.ignoring().antMatchers("/pconnect-user/v2/api-docs","/pconnect-todo/v2/api-docs");
+    web.ignoring().antMatchers("/pconnect-user/v2/api-docs","/pconnect-todo/v2/api-docs","/pconnect-knw/v2/api-docs","/analysis-spc/v2/api-docs");
     web.ignoring().antMatchers("/swagger-ui.html","/swagger-resources/configuration/ui","/swagger-resources","/swagger-resources/configuration/security");
 //    web.ignoring().antMatchers("/todo/v1/tTodo/getList/**");
+    web.ignoring().antMatchers("/pconnect-knw/v1/**");
   }
 
   @Override

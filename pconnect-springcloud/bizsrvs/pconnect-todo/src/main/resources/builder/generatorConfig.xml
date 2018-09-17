@@ -19,7 +19,7 @@
                     userId="root" password="xfd4m463$#ked@&amp;!EDQd">
                 </jdbcConnection>-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/pconnect?useUnicode=true&amp;characterEncoding=UTF8"
+                        connectionURL="jdbc:mysql://localhost:3306/pconnect_dev?useUnicode=true&amp;characterEncoding=UTF8"
                         userId="root" password="Neural!@#123">
         </jdbcConnection>
 
@@ -31,16 +31,12 @@
 
         <javaClientGenerator targetPackage="${targetMapperPackage}"
                              targetProject="${targetJavaProject}" type="XMLMAPPER" />
-        <table tableName="dm_knw_article_collect" domainObjectName="TArticleCollect"/>
-        <table tableName="dm_knw_category" domainObjectName="TCategory"/>
-        <table tableName="dm_knw_choice_answer" domainObjectName="TChoiceAnswer"/>
-        <table tableName="dm_knw_choice_question" domainObjectName="TChoiceQuestion"/>
-        <table tableName="dm_knw_clipping" domainObjectName="TClipping"/>
-        <table tableName="dm_knw_compare" domainObjectName="TCompare"/>
-        <table tableName="dm_knw_compare_title" domainObjectName="TCompareTitle"/>
+
         <table tableName="dm_usr_todoes" domainObjectName="TTodoes"/>
+        <table tableName="dm_usr_todoes_change_history" domainObjectName="TTodoesChangeHistory"/>
         <table tableName="dm_usr_todoes_do_record" domainObjectName="TTodoesDoRecord"/>
-        <table tableName="glossary" domainObjectName="TGlossary"/>
+        <table tableName="dm_usr_todoes_records_of_report_to" domainObjectName="TTodoesRecordsofReportto"/>
+        <table tableName="dm_usr_todoes_status_enum" domainObjectName="TTodoesStatusEnum"/>
 
     </context>
 </generatorConfiguration>

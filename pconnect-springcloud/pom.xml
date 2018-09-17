@@ -29,14 +29,16 @@
         </license>
     </licenses>
 
-    <modules> 
-        <module>/pubsrvs/pconnect-center</module>
+    <modules>
         <module>/libs/pconnect-api</module>
-        <module>/pubsrvs/pconnect-gate</module>
         <module>/libs/pconnect-common</module>
+        <module>/dbs/pconnect-dbcreate</module>
+        <module>/pubsrvs/pconnect-center</module>
+        <module>/pubsrvs/pconnect-gate</module>
         <module>/pubsrvs/pconnect-user</module>
         <module>/bizsrvs/pconnect-todo</module>
-        <module>/dbs/pconnect-dbcreate</module>
+        <module>/bizsrvs/pconnect-knw</module>
+        <module>/bizsrvs/analysis-spc</module>
     </modules>
 
     <developers>

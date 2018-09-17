@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple"
+             defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+        <property name="mergeable" value="false"></property>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+        </plugin>
+
+        <!--		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://localhost:3306/pconnect?useUnicode=true&amp;characterEncoding=UTF8"
+                    userId="root" password="xfd4m463$#ked@&amp;!EDQd">
+                </jdbcConnection>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/pconnect_dev?useUnicode=true&amp;characterEncoding=UTF8"
+                        userId="root" password="Neural!@#123">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="${targetModelPackage}"
+                            targetProject="${targetJavaProject}" />
+
+        <sqlMapGenerator targetPackage="${targetXMLPackage}"
+                         targetProject="${targetResourcesProject}" />
+
+        <javaClientGenerator targetPackage="${targetMapperPackage}"
+                             targetProject="${targetJavaProject}" type="XMLMAPPER" />
+        <table tableName="dm_knw_article_collect" domainObjectName="TArticleCollect"/>
+        <table tableName="dm_knw_category" domainObjectName="TCategory"/>
+        <table tableName="dm_knw_choice_answer" domainObjectName="TChoiceAnswer"/>
+        <table tableName="dm_knw_choice_question" domainObjectName="TChoiceQuestion"/>
+        <table tableName="dm_knw_clipping" domainObjectName="TClipping"/>
+        <table tableName="dm_knw_compare" domainObjectName="TCompare"/>
+        <table tableName="dm_knw_compare_title" domainObjectName="TCompareTitle"/>
+        <table tableName="dm_knw_enum_tag_wait_for_done_for_article" domainObjectName="TEnumTagWaitforDoneforArticle"/>
+        <table tableName="dm_knw_image_album" domainObjectName="TImageAlbum"/>
+        <table tableName="dm_knw_teleplay" domainObjectName="TTeleplay"/>
+        <table tableName="dm_knw_url_collect" domainObjectName="TUrlCollect"/>
+        <table tableName="dm_knw_video_album" domainObjectName="TVideoAlbum"/>
+        <table tableName="glossary" domainObjectName="TGlossary"/>
+
+    </context>
+</generatorConfiguration>

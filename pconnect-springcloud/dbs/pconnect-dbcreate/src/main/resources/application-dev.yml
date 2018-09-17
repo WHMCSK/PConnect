@@ -3,7 +3,7 @@ spring:
     name: pconnect-dbcreate
   datasource:
     name: test
-    url: jdbc:mysql://localhost:3306/pconnect?useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/pconnect_dev?useUnicode=true&characterEncoding=UTF8
     username: root
     password: Neural!@#123
     type: com.alibaba.druid.pool.DruidDataSource

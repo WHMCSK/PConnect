@@ -32,7 +32,7 @@ spring:
       max-wait: -1
   mail:
     host: smtp.qq.com
-    username: angularliu@qq.com
+    username: 28206254@qq.com
     password:
     properties:
       mail:

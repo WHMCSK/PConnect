@@ -1,0 +1,102 @@
+version: '3.7'
+
+services:
+  redis:
+      container_name: redis
+      image: redis
+      ports: 
+        - 6379:6379
+      volumes: 
+        - /Users/jinfei/Laboratory/DockerShare/Redis/data:/data
+      deploy: 
+        resources: 
+          limits: 
+            cpus: '0.05'
+            memory: 500M
+          reservations:
+            cpus: '0.01'
+            memory: 200M
+        restart_policy:
+          condition: on-failure
+          max_attempts: 3
+          window: 120s
+  mariadb:
+      container_name: mariadb
+      image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: Vosung123
+      ports:
+        - 3306:3306
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+      deploy:
+        resources:
+          limits:
+            cpus: '0.05'
+            memory: 500M
+          reservations:
+            cpus: '0.05'
+          memory: 20M
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+  pconnect-center:
+      container_name: pconnect-center
+      image: pconnect-center
+      restart: always
+      expose: 
+        - 8961
+      ports: 
+        - 8961
+      depends_on: 
+        - redis
+        - mariadb
+      links: 
+        - redis:redis
+        - mariadb:mariadb
+  pconnect-gate:
+      container_name: pconnect-gate
+      image: pconnect-gate
+      restart: always
+      expose: 
+        - 8965
+      ports: 
+        - 8965
+      depends_on: 
+        - redis
+        - mariadb
+      links: 
+        - redis:redis
+        - mariadb:mariadb
+  pconnect-user:
+      container_name: pconnect-user
+      image: pconnect-user
+      restart: always
+      expose: 
+        - 8964
+      ports: 
+        - 8964
+      depends_on: 
+        - redis
+        - mariadb
+      links: 
+        - redis:redis
+        - mariadb:mariadb
+  pconnect-todo: 
+      container_name: pconnect-todo
+      image: pconnect-todo
+      restart: always
+      expose: 
+        - 8970
+      ports: 
+        - 8970
+      depends_on: 
+        - redis
+        - mariadb
+      links: 
+        - redis:redis
+        - mariadb:mariadb

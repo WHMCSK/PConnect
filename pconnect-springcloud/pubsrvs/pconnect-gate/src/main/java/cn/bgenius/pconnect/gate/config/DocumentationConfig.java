@@ -16,6 +16,8 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
         List resources = new ArrayList<>();
         resources.add(swaggerResource("用户系统", "/pconnect-user/v2/api-docs", "2.0"));
         resources.add(swaggerResource("Todo系统", "/pconnect-todo/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("知识系统", "/pconnect-knw/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("spc系统", "/analysis-spc/v2/api-docs", "2.0"));
         return resources;
     }
 

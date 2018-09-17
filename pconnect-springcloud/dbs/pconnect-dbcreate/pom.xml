@@ -22,7 +22,7 @@
 
         <flyway.user>root</flyway.user>
         <flyway.password>Neural!@#123</flyway.password>
-        <flyway.url>jdbc:mysql://localhost:3306/pconnect</flyway.url>
+        <flyway.url>jdbc:mysql://localhost:3306/pconnect_dev</flyway.url>
         <flyway.driver>com.mysql.jdbc.Driver</flyway.driver>
         <flyway.table>flyway_schema_history</flyway.table>
 

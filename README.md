@@ -1,5 +1,5 @@
 #  **PConnect 全栈必备** 
-PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管理、菜单管理、组织管理、知识库管理、......)，其核心设计目标是提供大型项目框架模版、开发快速、学习简单、功能强大、不重复造轮子
+PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管理、菜单管理、组织管理、知识库管理、......)，其核心设计目标是提供大型项目框架模版直接开发、快速开发、学习简单、功能强大、不重复造轮子
 
 交流QQ群：23592723 
 
@@ -61,7 +61,7 @@ PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管
 - vscode
 
 
-## 部署项目
+## 开发运行项目
 #### 前端开发运行  
 安装node-v6.11.0-x64.msi  
 ```
@@ -73,13 +73,16 @@ ng serve
 ```
 
 #### 后台开发运行 
-后台启动前先在连接的mysql数据库中建立pconnect、pconnect_auth两个空数据库，然后依次启动：
+1. 启动一个redis服务
+2. 后台启动前先在连接的mysql数据库中建立pconnect、pconnect_auth两个空数据库
+3. 在pconnect-user,pconnect-dbcreate的项目中配置好mysql的数据库连接
+4. 然后依次启动：
 
-- CenterBootstrap  
-- GateBootstrap  
-- UserBootstrap  
-- DBCreateBootstrap  
-- TodoBootstrap  
+    - CenterBootstrap  
+    - GateBootstrap  
+    - UserBootstrap  
+    - DBCreateBootstrap  
+    - TodoBootstrap  
 
 #### 访问
 ```
@@ -89,20 +92,26 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 ```
 需要注意： 每个功能页面要在菜单中出现并正常访问，需要在“菜单管理”功能中进行配置，并且还要给访问的账号角色配置对应的权限，所以有时候新做的页面没来得及将其配置信息做到数据库初始化脚本中，请大家在这时候自行在前端路由代码中找到相应网页链接，然后在“菜单管理”中配置好，然后再给对应角色赋予权限，才能看到新开发的页面。
 
-#### 打包项目
+## 打包部署
+
+### 手动方式
 
 在根目录运行
 ```
 ./mvnw install
 ```
 
-#### 生成docker image
+然后依照启动顺序执行
+```
+java -jar {jar包名称}
+```
 
-在根目录运行
+### docker方式本机部署
+
+运行根目录下面的deploy-to-docker.sh文件
 ```
-./mvnw install
+./deploy-to-docker.sh
 ```
-就会生成可以部署的docker image
 
 ### 框架整合计划：
 
@@ -127,7 +136,7 @@ SwaggerAPI列表聚合： http://localhost:8965/swagger-ui.html
 | Config |  | * |
 | Flyway |  | * |
 | Docker部署 |  | * |
-| docker-compose | * |  |
+| docker-compose |  | * |
 
 ## 功能规划      
 

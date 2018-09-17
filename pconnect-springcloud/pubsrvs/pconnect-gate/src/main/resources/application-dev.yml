@@ -24,6 +24,12 @@ zuul:
     pconnect-todo:
       path: /pconnect-todo/**
       serviceId: pconnect-todo
+    pconnect-knw:
+      path: /pconnect-knw/**
+      serviceId: pconnect-knw
+    analysis-spc:
+      path: /analysis-spc/**
+      serviceId: analysis-spc
   sensitive-headers:
   host:
      connect-timeout-millis: 60000

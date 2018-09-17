@@ -19,7 +19,7 @@
 			userId="root" password="xfd4m463$#ked@&amp;!EDQd">
 		</jdbcConnection>-->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://localhost:3306/pconnect_auth?useUnicode=true&amp;characterEncoding=UTF8"
+						connectionURL="jdbc:mysql://localhost:3306/pconnect_auth_dev?useUnicode=true&amp;characterEncoding=UTF8"
 						userId="root" password="">
 		</jdbcConnection>
 
