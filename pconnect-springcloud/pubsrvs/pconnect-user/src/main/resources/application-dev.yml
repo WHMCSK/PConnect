@@ -61,6 +61,8 @@ eureka:
     client:
         serviceUrl:
             defaultZone: http://localhost:8961/eureka/
+    instance:
+      prefer-ip-address: true
 
 management:
   security:

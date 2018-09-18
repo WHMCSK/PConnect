@@ -10,7 +10,21 @@ PConnect是基于AngularX+SpringCloud的企业级基础功能框架(户权限管
  
 
 # 架构设计 
+
+### 架构原理图
+
 ![img](http://on-img.com/chart_image/5954b886e4b0ad619ac73246.png)
+
+### 对单机项目的整合
+
+当我在想用一个什么项目作为老项目的时候，找我的收藏夹，发现了一个不错的开源项目（若依RuoYi），在这里他表示感谢！
+所以我打算找多个“老项目”进行整合，也作为一个示范，RuoYi是第一个
+
+对“老项目”的整合采用“绞窄模式(Strangulation Patterns)”(见[Martin Fowler的博客](https://martinfowler.com/bliki/StranglerApplication.html))进行，放在strangulation目录下。这些“老项目”自身的说明，请见对应项目目录。
+
+##### 整合一：
+* RuoYi
+
 
 ## 前端技术：Angular；
 支持angular2、4、5版本，UI使用[AdminLTE](https://github.com/almasaeed2010/AdminLTE)；
@@ -73,9 +87,10 @@ ng serve
 ```
 
 #### 后台开发运行 
+
 1. 启动一个redis服务
-2. 后台启动前先在连接的mysql数据库中建立pconnect、pconnect_auth两个空数据库
-3. 在pconnect-user,pconnect-dbcreate的项目中配置好mysql的数据库连接
+2. 首次运行，后台启动前先在连接的mysql数据库中建立pconnect_dev、pconnect_auth_dev、ry_dev三个空数据库
+3. 在pconnect-user,pconnect-dbcreate、ruoyi的项目中配置好mysql的数据库连接(目前ry_dev首次生成要在ruoyi项目中使用mvn compile flyway:migrate命令，后期追加sql变更则可以直接运行项目自动变更)
 4. 然后依次启动：
 
     - CenterBootstrap  
@@ -83,6 +98,9 @@ ng serve
     - UserBootstrap  
     - DBCreateBootstrap  
     - TodoBootstrap  
+    - RuoYiApplication
+
+5. 每次开发的时候也不是需要启动所有子项目，只需要启动必须启动的CenterBootstrap、GateBootstrap、UserBootstrap，再加上需要编码调试的对应项目。
 
 #### 访问
 ```
@@ -113,7 +131,11 @@ java -jar {jar包名称}
 ./deploy-to-docker.sh
 ```
 
-### 框架整合计划：
+### All in One脚本
+
+待续
+
+## 框架整合计划：
 
 | 技术条目 | 待整合 | 已整合 |
 | --- | --- | --- |

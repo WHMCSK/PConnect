@@ -16,7 +16,9 @@ spring:
 server:
     port: 8965
 
+  # path: /pconnect-user/*只能匹配一个级别，path: /pconnect-user/**可以匹配后面任意个/
 zuul:
+  # 使用application.yml文件配置zuul的routes，那么这里的路由列表按照书写顺序存在优先级，如果使用的是properties文件配置，则失去优先级这个特性，所以，如果要使用优先级，必须使用yaml文件配置
   routes:
     pconnect-user:
       path: /pconnect-user/**
@@ -30,18 +32,33 @@ zuul:
     analysis-spc:
       path: /analysis-spc/**
       serviceId: analysis-spc
+    legacy:
+      path: http://localhost:8041
   sensitive-headers:
   host:
      connect-timeout-millis: 60000
      socket-timeout-millis: 60000
+#  ignored-services: '*'
+#  prefix: /api
+#  stripPrefix: true  //这个stripPrefix的作用，实际测试好像和文档中说的不一样
 
 # 负载均衡
 ribbon:
   eureka:
     enabled: true
   ReadTimeout: 60000
-  ConnectTimeout: 60000
+  ConnectTimeout: 3000
 
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#pconnect-user:
+#  ribbon:
+#    listOfServers: http://localhost:8964,http://localhost:7964
+
+
+#        prefer-ip-address: true
 eureka:
     instance:
         statusPageUrlPath: ${management.context-path}/info
@@ -98,4 +115,6 @@ github:
   resource:
     userInfoUri: https://api.github.com/user
 
-
+logging:
+  level:
+    com.netflix: debug

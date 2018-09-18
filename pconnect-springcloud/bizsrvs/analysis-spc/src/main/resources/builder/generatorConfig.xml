@@ -32,7 +32,8 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}"
                              targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
-        <table tableName="test" domainObjectName="TGlossary"/>
+        <table tableName="test" domainObjectName="TTest"/>
+        <table tableName="group_sub_computed" domainObjectName="TGroupSubComputed"/>
 
     </context>
 </generatorConfiguration>
